@@ -39,11 +39,12 @@ class preorderTraversalSolution {
     public static void main(String[] args) {
         preorderTraversalSolution solution = new preorderTraversalSolution();
         TreeNode root = TreeNode.deserialize("1,null,2,3,null");
-//        TreeNode root = TreeNode.deserialize("");
-//        TreeNode root = TreeNode.deserialize("1,null,null");
-//        TreeNode root = TreeNode.deserialize("1,2,null");
-//        TreeNode root = TreeNode.deserialize("1,null,2");
         System.out.println(solution.preorderTraversal(root));
+        // 其他测试样例
+        /*TreeNode root = TreeNode.deserialize("");
+        TreeNode root = TreeNode.deserialize("1,null,null");
+        TreeNode root = TreeNode.deserialize("1,2,null");
+        TreeNode root = TreeNode.deserialize("1,null,2");*/
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
