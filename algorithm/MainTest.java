@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.Deque;
 import java.util.LinkedList;
 import datastructure.TreeNode;
@@ -23,6 +24,10 @@ public class MainTest {
         System.out.println();
         System.out.println(deque.peek());  // 7
 
+        System.out.println("---------------");
+        System.out.println(Collections.max(deque));
+        System.out.println("---------------");
+
         deque.offer(11);
         for (Integer integer : deque) {
             System.out.print(integer + " ");
@@ -33,5 +38,7 @@ public class MainTest {
         TreeNode.preorderTraversal(root);
         TreeNode.inorderTraversal(root);
         TreeNode.postorderTraversal(root);
+
+
     }
 }
