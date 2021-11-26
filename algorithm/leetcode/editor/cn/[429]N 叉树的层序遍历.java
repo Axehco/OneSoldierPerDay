@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-// Definition for a Node.
+/*// Definition for a Node.
 class Node {
     public int val;
     public List<Node> children;
@@ -21,10 +21,10 @@ class Node {
         val = _val;
         children = _children;
     }
-};
+};*/
 
 class levelOrderNodeSolution {
-    public List<List<Integer>> levelOrder(Node root) {
+    /*public List<List<Integer>> levelOrder(Node root) {
         List<List<Integer>> res = new ArrayList<>();
         Deque<Node> deque = new LinkedList<>();
         if (root == null) {
@@ -46,6 +46,10 @@ class levelOrderNodeSolution {
             res.add(temp);
         }
         return res;
+    }*/
+
+    public static void main(String[] args) {
+
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
