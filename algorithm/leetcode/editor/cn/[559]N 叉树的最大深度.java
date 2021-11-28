@@ -22,8 +22,8 @@ import java.util.List;
     }
 };*/
 
-/*class Solution {
-    public int maxDepth(Node root) {
+class maxDepthNodeSolution {
+    /*public int maxDepth(Node root) {
         int maxDepth = 0;
         if (root == null) {
             return maxDepth;
@@ -41,7 +41,6 @@ import java.util.List;
             }
         }
         return maxDepth;
-    }
-
-}*/
+    }*/
+}
 //leetcode submit region end(Prohibit modification and deletion)
