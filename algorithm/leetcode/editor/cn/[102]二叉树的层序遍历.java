@@ -50,11 +50,45 @@ class levelOrderSolution {
         return res;
     }
 
+    /**
+     * dfs
+     * @param root
+     * @return
+     */
+    public List<List<Integer>> levelOrderdfs(TreeNode root){
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+        dfs(root, res, 0);
+        return res;
+    }
+
+    // level代表层数
+    public void dfs(TreeNode node, List<List<Integer>> res, int level) {
+        // 终止条件
+        if (node == null) {
+            return;
+        }
+        // 插入一个空list放到res中
+        if (level == res.size()) {
+            res.add(new ArrayList<>());
+        }
+        res.get(level).add(node.val);
+        if (node.left != null) {
+            dfs(node.left, res, level + 1);
+        }
+        if (node.right != null) {
+            dfs(node.right, res, level + 1);
+        }
+    }
+
     public static void main(String[] args) {
         levelOrderSolution solution = new levelOrderSolution();
-        TreeNode root = TreeNode.deserialize("3,9,20,null,null,15,7");
-//        TreeNode root = TreeNode.deserialize("1,5,4,2,3,6,7");
-        System.out.println(solution.levelOrder(root));
+//        TreeNode root = TreeNode.deserialize("3,9,20,null,null,15,7");
+        TreeNode root = TreeNode.deserialize("1,5,4,2,3,6,7");
+//        System.out.println(solution.levelOrder(root));
+        System.out.println(solution.levelOrderdfs(root));
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
