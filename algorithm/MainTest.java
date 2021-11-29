@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Deque;
 import java.util.LinkedList;
@@ -39,6 +40,39 @@ public class MainTest {
         TreeNode.inorderTraversal(root);
         TreeNode.postorderTraversal(root);
 
+        System.out.println("============");
+        System.out.println(func(5));
 
+        System.out.println("===========swap================");
+        int a = 2, b = 3;
+        myswap(a, b);
+        System.out.println(a + " " + b);  // 2 3
+
+        int[] arr = {1, 2, 3, 4};
+        myarrswap(arr);
+        System.out.println(Arrays.toString(arr));  // [2, 1, 3, 4]
+    }
+
+    public static int func(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+//        int res = 1;
+//        for (int i = 1; i <= n; ++i) {
+//            res *= i;
+//        }
+        return n * func(n - 1);
+    }
+
+    public static void myswap(int a, int b) {
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+
+    public static void myarrswap(int[] arr) {
+        int temp = arr[0];
+        arr[0] = arr[1];
+        arr[1] = temp;
     }
 }
