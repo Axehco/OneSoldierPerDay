@@ -4,10 +4,7 @@ package leetcode.editor.cn;
 
 import datastructure.TreeNode;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Definition for a binary tree node.
@@ -44,6 +41,40 @@ class levelOrderBottomSolution {
             res.addFirst(temp);
         }
         return res;
+    }
+
+    /**
+     * dfs
+     * @param root
+     * @return
+     */
+    public List<List<Integer>> levelOrderBottomdfs(TreeNode root){
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+        dfs(root, res, 0);
+        Collections.reverse(res);
+        return res;
+    }
+
+    // level代表层数
+    public void dfs(TreeNode node, List<List<Integer>> res, int level) {
+        // 终止条件
+        if (node == null) {
+            return;
+        }
+        // 插入一个空list放到res中
+        if (level == res.size()) {
+            res.add(new ArrayList<>());
+        }
+        res.get(level).add(node.val);
+        if (node.left != null) {
+            dfs(node.left, res, level + 1);
+        }
+        if (node.right != null) {
+            dfs(node.right, res, level + 1);
+        }
     }
 
     public static void main(String[] args) {
