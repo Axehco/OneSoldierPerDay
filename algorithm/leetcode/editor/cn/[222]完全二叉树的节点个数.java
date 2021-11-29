@@ -23,6 +23,11 @@ import java.util.LinkedList;
  * }
  */
 class countNodesSolution {
+    /**
+     * bfs 层序遍历
+     * @param root
+     * @return
+     */
     public int countNodes(TreeNode root) {
         int count = 0;
         if (root == null) {
@@ -42,10 +47,27 @@ class countNodesSolution {
         return count;
     }
 
+    /**
+     * 递归写法
+     * @param root
+     * @return
+     */
+    public int countNodesRecursion(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int leftnum = countNodesRecursion(root.left);
+        int rightnum = countNodesRecursion(root.right);
+        return 1 + leftnum + rightnum;
+    }
+
     public static void main(String[] args) {
-        TreeNode root = TreeNode.deserialize("1,2,3,4,5,6,null");
+//        TreeNode root = TreeNode.deserialize("1,2,3,4,5,6,null");
+        TreeNode root = TreeNode.deserialize("1,null,2,3,4");  // 不是完全二叉树的情况也可
         countNodesSolution solution = new countNodesSolution();
         System.out.println(solution.countNodes(root));
+
+        System.out.println(solution.countNodesRecursion(root));
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
