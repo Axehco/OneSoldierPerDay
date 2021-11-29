@@ -25,6 +25,11 @@ import java.util.List;
  * }
  */
 class levelOrderSolution {
+    /**
+     * bfs
+     * @param root
+     * @return
+     */
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) {
@@ -85,8 +90,8 @@ class levelOrderSolution {
 
     public static void main(String[] args) {
         levelOrderSolution solution = new levelOrderSolution();
-//        TreeNode root = TreeNode.deserialize("3,9,20,null,null,15,7");
-        TreeNode root = TreeNode.deserialize("1,5,4,2,3,6,7");
+        TreeNode root = TreeNode.deserialize("3,9,20,null,null,15,7");
+//        TreeNode root = TreeNode.deserialize("1,5,4,2,3,6,7");
 //        System.out.println(solution.levelOrder(root));
         System.out.println(solution.levelOrderdfs(root));
     }
