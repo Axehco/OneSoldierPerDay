@@ -4,6 +4,7 @@ package leetcode.editor.cn;
 
 import datastructure.TreeNode;
 
+import java.util.Collections;
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -23,6 +24,11 @@ import java.util.LinkedList;
  * }
  */
 class invertTreeSolution {
+    /**
+     * 层序遍历解决、把左右孩子都翻转了，注意翻转的不是值。
+     * @param root
+     * @return
+     */
     public TreeNode invertTree(TreeNode root) {
         if (root == null) {
             return null;
@@ -47,11 +53,31 @@ class invertTreeSolution {
         return root;
     }
 
+    /**
+     * 递归的方式解决，这里使用的是前序遍历的思想，中左右。后续遍历也可以
+     * 但是中序遍历不行，因为先左孩子交换孩子，再根交换孩子（做完后，右孩子已经变成了原来的左孩子），再右孩子交换孩子（此时其实是对原来的左孩子做交换）
+     * @param root
+     * @return
+     */
+    public TreeNode invertTreeRecursion(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        invertTreeRecursion(root.left);
+        invertTreeRecursion(root.right);
+        return root;
+    }
+
     public static void main(String[] args) {
         TreeNode root = TreeNode.deserialize("4,2,7,1,3,6,9");
 //        TreeNode root = TreeNode.deserialize("1,null,2,3,4");
         invertTreeSolution solution = new invertTreeSolution();
-        System.out.println(solution.invertTree(root));
+//        System.out.println(solution.invertTree(root));
+
+        System.out.println(solution.invertTreeRecursion(root));
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
