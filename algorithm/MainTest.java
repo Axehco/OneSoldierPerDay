@@ -51,6 +51,9 @@ public class MainTest {
         int[] arr = {1, 2, 3, 4};
         myarrswap(arr);
         System.out.println(Arrays.toString(arr));  // [2, 1, 3, 4]
+
+        System.out.println("===========funcMath================");
+        funcMath();
     }
 
     public static int func(int n) {
@@ -74,5 +77,10 @@ public class MainTest {
         int temp = arr[0];
         arr[0] = arr[1];
         arr[1] = temp;
+    }
+
+    public static void funcMath() {
+        System.out.println(Math.max(1, 4));
+        System.out.println(Math.PI - Math.PI);
     }
 }
