@@ -24,6 +24,11 @@ import java.util.Stack;
  * }
  */
 class isBalancedSolution {
+    /**
+     * 栈实现前序遍历，对每个节点的左右子树高度进行比较
+     * @param root
+     * @return
+     */
     public boolean isBalanced(TreeNode root) {
         if (root == null) return true;
         Stack<TreeNode> stack = new Stack<>();
@@ -34,9 +39,14 @@ class isBalancedSolution {
             if (node.right != null) stack.push(node.right);
             if (node.left != null) stack.push(node.left);
         }
-        return false;
+        return true;
     }
 
+    /**
+     * 求每棵树的高度，也是最大深度
+     * @param node
+     * @return
+     */
     public int getDepth(TreeNode node) {
         if (node == null) return 0;
         Deque<TreeNode> deque = new LinkedList<>();
@@ -46,18 +56,17 @@ class isBalancedSolution {
             int cnt = deque.size();
             for (int i = 0; i < cnt; ++i) {
                 TreeNode cur = deque.poll();
-                depth++;
                 if (cur.left != null) deque.offer(cur.left);
                 if (cur.right != null) deque.offer(cur.right);
             }
+            depth++;
         }
         return depth;
     }
 
     public static void main(String[] args) {
-        TreeNode root = TreeNode.deserialize("3,9,20,null,null,15,7");
-//        TreeNode root = TreeNode.deserialize("1,2,3,4,5,6,null,null,null,null,null,null,7");
-        TreeNode.postorderTraversal(root);
+//        TreeNode root = TreeNode.deserialize("3,9,20,null,null,15,7");
+        TreeNode root = TreeNode.deserialize("1,2,3,4,5,6,null,null,null,null,null,null,7");
         isBalancedSolution solution = new isBalancedSolution();
         System.out.println(solution.isBalanced(root));
     }
