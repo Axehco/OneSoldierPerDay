@@ -81,7 +81,7 @@ class minDepthSolution {
         }else if (root.left != null && root.right == null) {
             return leftMaxDepth + 1;
         } else {
-            return leftMaxDepth > rightMaxDepth ? rightMaxDepth + 1 : leftMaxDepth + 1;
+            return Math.min(leftMaxDepth, rightMaxDepth) + 1;
         }
     }
 
