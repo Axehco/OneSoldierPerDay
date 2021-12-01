@@ -22,6 +22,9 @@ import java.util.*;
  * }
  */
 class levelOrderBottomSolution {
+
+    /*解法一==========================================================================================*/
+
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         LinkedList<List<Integer>> res = new LinkedList<>();
         Deque<TreeNode> deque = new LinkedList<>();
@@ -42,6 +45,8 @@ class levelOrderBottomSolution {
         }
         return res;
     }
+
+    /*解法二==========================================================================================*/
 
     /**
      * dfs
@@ -76,6 +81,8 @@ class levelOrderBottomSolution {
             dfs(node.right, res, level + 1);
         }
     }
+
+    /*测试==========================================================================================*/
 
     public static void main(String[] args) {
         levelOrderBottomSolution solution = new levelOrderBottomSolution();
