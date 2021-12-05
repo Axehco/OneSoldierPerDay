@@ -148,6 +148,7 @@ public class TreeNode {
 
     @Override
     public String toString() {
+        System.out.print("Default print tree as Levelorder Traversal: ");
         return levelTraverseBFS(this).toString();
     }
 
