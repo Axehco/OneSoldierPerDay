@@ -21,7 +21,7 @@ import java.util.HashMap;
  *     }
  * }
  */
-class buildTreeSolution {
+class buildTreeSolutionInAndPos {
     HashMap<Integer, Integer> memo = new HashMap<>();
     int[] post;
 
@@ -47,6 +47,7 @@ class buildTreeSolution {
         // 得到 根节点 在中序遍历数组中的下标。 ri 即 rootIndex.
         int ri = memo.get(rootValue);
         TreeNode node = new TreeNode(rootValue);
+        // 画图注意边界条件
         node.left = buildTree(is, ri - 1, ps, ps + ri - is - 1);
         node.right = buildTree(ri + 1, ie, ps + ri - is, pe - 1);
         // 注意、返回的是新建立的node
@@ -58,8 +59,11 @@ class buildTreeSolution {
         int[] postorder = {9,15,7,20,3};*/
         int[] inorder = {4,2,8,5,9,1,6,10,3,7};
         int[] postorder = {4,8,9,5,2,10,6,7,3,1};
-        buildTreeSolution solution = new buildTreeSolution();
+        buildTreeSolutionInAndPos solution = new buildTreeSolutionInAndPos();
+        // toString方法 被重写 层序遍历输出
         System.out.println(solution.buildTree(inorder, postorder));
+        TreeNode.inorderTraversal(solution.buildTree(inorder, postorder));
+        TreeNode.postorderTraversal(solution.buildTree(inorder, postorder));
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
