@@ -20,6 +20,9 @@ import datastructure.TreeNode;
  * }
  */
 class isSameTreeSolution {
+
+    /*解法=========================================================================================*/
+
     public boolean isSameTree(TreeNode p, TreeNode q) {
         /**
          * 都为空，相同
@@ -35,6 +38,8 @@ class isSameTreeSolution {
             return flagLeft && flaRight;
         }
     }
+
+    /*测试=========================================================================================*/
 
     public static void main(String[] args) {
         /*TreeNode p = TreeNode.deserialize("1,2,3");
