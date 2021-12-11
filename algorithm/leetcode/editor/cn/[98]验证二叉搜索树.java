@@ -6,6 +6,7 @@ import datastructure.TreeNode;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Definition for a binary tree node.
@@ -52,15 +53,35 @@ class isValidBSTSolution {
         dfs(root.right, inorderArray);
     }
 
+    /*解法二=========================================================================================*/
+
+    double preNum = -Double.MAX_VALUE;  // 记录上一个节点的最小值
+
+    public boolean isValidBSTNew(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            if (root.val <= preNum) return false;
+            preNum = root.val;
+            root = root.right;
+        }
+        return true;
+    }
+
     /*测试=========================================================================================*/
 
     public static void main(String[] args) {
         isValidBSTSolution solution = new isValidBSTSolution();
 //        TreeNode root = TreeNode.deserialize("5,1,4,null,null,3,6");
 //        TreeNode root = TreeNode.deserialize("2,1,3");
-        TreeNode root = TreeNode.deserialize("5,4,6,null,null,3,7");
-//        TreeNode root = TreeNode.deserialize("3,1,5,0,2,4,6");
+//        TreeNode root = TreeNode.deserialize("5,4,6,null,null,3,7");
+        TreeNode root = TreeNode.deserialize("3,1,5,0,2,4,6");
         System.out.println(solution.isValidBST(root));
+        System.out.println(solution.isValidBSTNew(root));
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
