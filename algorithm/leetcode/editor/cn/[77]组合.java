@@ -6,6 +6,25 @@ import java.util.List;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class combineSolution {
+
+    /**
+     * 回溯模板
+     * choiceList：当前可以进行的选择列表
+     * path：可以理解为决策路径，即已经做出一系列选择
+     * result：用来储存我们的符合条件决策路径
+     */
+    /*void backtracking(choiceList, path, result) {
+        if (终止条件) {
+            result.add(path)  存放结果;
+            return;
+        }
+        for (choice in choiceList) {
+            choose：选择一个 choice 加入 path; 即处理节点;
+            backtracking(choiceList, path, result);  即递归
+            unchoose：从 path 中撤销上面的选择; 即回溯撤销处理结果
+        }
+    }*/
+
     List<List<Integer>> result = new ArrayList<>();  // 储存符合条件决策路径
     LinkedList<Integer> path = new LinkedList<>();  // 决策路径，即已经做出一系列选择
 
