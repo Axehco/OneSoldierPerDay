@@ -8,6 +8,18 @@ import datastructure.TreeNode;
  */
 public class MainTest {
     public static void main(String[] args) {
+        boolean[] visited = {true, true, true};
+        System.out.println(visited[1]);
+        fnums(visited);
+        System.out.println(visited[1]);
+        System.out.println(visited[0]);
+    }
+
+    public static void fnums(boolean[] visited) {
+        visited[1] = false;
+    }
+
+    public static void f() {
         Deque<Integer> deque = new LinkedList<>();
         deque.add(1);
         deque.add(4);
