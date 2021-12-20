@@ -13,6 +13,12 @@ public class MainTest {
         fnums(visited);
         System.out.println(visited[1]);
         System.out.println(visited[0]);
+
+        char[] temp = {'1', '2', '3'};
+//        System.out.println(Arrays.toString(temp));  // [1, 2, 3]
+//        System.out.println(Arrays.toString(temp).length());  // 长度为 9
+        String S = new String(temp);
+        System.out.println(S);
     }
 
     public static void fnums(boolean[] visited) {
