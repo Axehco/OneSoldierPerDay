@@ -19,6 +19,9 @@ public class MainTest {
 //        System.out.println(Arrays.toString(temp).length());  // 长度为 9
         String S = new String(temp);
         System.out.println(S);
+
+        String ss = "abc";
+        System.out.println('.' + ss);
     }
 
     public static void fnums(boolean[] visited) {
