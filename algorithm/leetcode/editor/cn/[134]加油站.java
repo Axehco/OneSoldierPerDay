@@ -2,63 +2,31 @@ package leetcode.editor.cn;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class canCompleteCircuitSolution {
+    // 暴力、超时
     public int canCompleteCircuit(int[] gas, int[] cost) {
         int res = -1;
-        int[] g = new int[gas.length * 2];
         for (int i = 0; i < gas.length; i++) {
-            g[i] = gas[i];
-            g[i + gas.length] = gas[i];
-        }
-        int[] c = new int[cost.length * 2];
-        for (int i = 0; i < cost.length; i++) {
-            c[i] = cost[i];
-            c[i + cost.length] = cost[i];
-        }
-        for (int i = 0; i < gas.length; i++) {
+            if (gas[i] < cost[i]) continue;
             int len = gas.length;
             int mygas = gas[i];
             int index = i;
-            while (len > 0) {
-                res = i;
-                if (mygas > c[index]) {
-                    mygas -= c[index];
-
-                }
-            }
-        }
-        return res;
-    }
-
-    /*public int canCompleteCircuit(int[] gas, int[] cost) {
-        int res = -1;
-        for (int i = 0; i < gas.length; i++) {
-            int mygas = gas[i];
             res = i;
-            int cnt = i;
-            while (true) {
-                int index = 0;
-                if (mygas > cost[i]) {
-                    mygas -= cost[i];
-                    mygas += gas[i];
-                    cnt++;
+            while (len > 0) {
+                if (mygas >= cost[index]) {
+                    mygas -= cost[index];
                     index++;
-                    if (cnt % gas.length == 0) {
-                        cnt = 0;
-                    }
-                    if (index == gas.length - 1) {
-                        break;
-                    }
+                    if (index % gas.length == 0) index = 0;
+                    mygas += gas[index];
+                    len--;
                 } else {
-                    res = -2;
+                    res = -1;
                     break;
                 }
             }
-            if (res != -2) {
-                break;
-            }
+            if (res != -1) break;
         }
         return res;
-    }*/
+    }
 
     public static void main(String[] args) {
         canCompleteCircuitSolution solution = new canCompleteCircuitSolution();
