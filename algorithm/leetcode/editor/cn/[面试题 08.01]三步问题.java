@@ -6,6 +6,7 @@ class waysToStepSolution {
         if (n == 1) return 1;
         if (n == 2) return 2;
         if (n == 3) return 4;
+        // 注意定义 long 防止整型相加溢出
         long pre = 1, cur = 2, next = 4;
         for (int i = 4; i <= n; i++) {
             long sum = (pre + cur + next) % 1000000007;
