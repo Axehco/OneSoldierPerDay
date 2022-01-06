@@ -8,12 +8,12 @@ import datastructure.TreeNode;
  */
 public class MainTest {
     public static void main(String[] args) {
-        int[] weight = {1, 3, 4};
+        /*int[] weight = {1, 3, 4};
         int[] value = {15, 20, 30};
-        int bagSize = 4;
-        /*int[] weight = {2,3,4,7};
+        int bagSize = 4;*/
+        int[] weight = {2,3,4,7};
         int[] value = {1,3,5,9};
-        int bagSize = 10;*/
+        int bagSize = 10;
         /*int[] weight = {2,3,4,5};
         int[] value = {3,4,5,8};
         int bagSize = 8;*/
@@ -22,7 +22,8 @@ public class MainTest {
 //        knapsack2(weight, value, bagSize);
 //        knapsack33(weight, value, bagSize);
 //        CompleteKnapsack(weight, value, bagSize);
-        CompleteKnapsack1(weight, value, bagSize);
+//        CompleteKnapsack1(weight, value, bagSize);
+        CompleteKnapsack2(weight, value, bagSize);
     }
 
     // 完全背包
@@ -43,9 +44,9 @@ public class MainTest {
     // 完全背包 从0-1背包过来的
     public static void CompleteKnapsack1(int[] weight, int[] value, int bagSize) {
         int[] dp = new int[bagSize + 1];
-        for (int i = 1; i < weight.length; i++) {
+        for (int i = 0; i < weight.length; i++) {
             for (int j = bagSize; j >= weight[i]; j--) {
-                for (int k = 0; k <= j / weight[i]; k++) {
+                for (int k = 0; k < j / weight[i] + 1; k++) {
                     dp[j] = Math.max(dp[j], dp[j - k * weight[i]] + k * value[i]);
                 }
             }
@@ -55,6 +56,28 @@ public class MainTest {
             System.out.println();
         }
         System.out.println("背包所获得的最大价值为：" + dp[bagSize]);
+    }
+
+    // 完全背包 二重dp
+    public static void CompleteKnapsack2(int[] weight, int[] value, int bagSize) {
+        // 定义dp数组
+        int[][] dp = new int[weight.length + 1][bagSize + 1];
+        // 先遍历物品，再遍历背包容量
+        for (int i = 1; i < weight.length + 1; i++) {
+            for (int j = 1; j < bagSize + 1; j++) {
+                // 装不下当前物品
+                if (j < weight[i - 1]) {
+                    dp[i][j] = dp[i - 1][j];
+                } else {  // 能装下，选择装与不装，取价值最大的。
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - weight[i - 1]] + value[i - 1]);
+                }
+            }
+        }
+        // 打印dp数组
+        for (int[] ints : dp) {
+            System.out.println(Arrays.toString(ints));
+        }
+        System.out.println("背包所获得的最大价值为：" + dp[weight.length][bagSize]);
     }
 
     public static void knapsack2(int[] weight, int[] value, int bagSize) {
