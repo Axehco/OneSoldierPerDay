@@ -8,6 +8,25 @@ import datastructure.TreeNode;
  */
 public class MainTest {
     public static void main(String[] args) {
+        // 每次可爬1阶、2阶、3阶
+        int[] numberStairs = {1,2,3};
+        System.out.println(climbStairs(3, numberStairs));
+    }
+
+    public static int climbStairs(int n, int[] numberStairs) {
+        int[] dp = new int[n + 1];
+        dp[0] = 1;
+        for (int j = 0; j < n + 1; j++) {
+            for (int i = 0; i < numberStairs.length; i++) {
+                if (j >= numberStairs[i]) {
+                    dp[j] = dp[j] + dp[j - numberStairs[i]];
+                }
+            }
+        }
+        return dp[n];
+    }
+
+    public static void beibao() {
         /*int[] weight = {1, 3, 4};
         int[] value = {15, 20, 30};
         int bagSize = 4;*/
