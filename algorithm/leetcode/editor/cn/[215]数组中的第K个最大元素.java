@@ -9,16 +9,11 @@ class findKthLargestSolution {
         for (int num : nums) {
             pq.offer(num);
         }
-        int index = 0;
-        int result = 0;
-        while (!pq.isEmpty()) {
-            int temp = pq.poll();
-            index++;
-            if (index == k) {
-                return temp;
-            }
+        while (k > 1) {
+            pq.poll();
+            k--;
         }
-        return result;
+        return pq.peek();
     }
 
     public static void main(String[] args) {
