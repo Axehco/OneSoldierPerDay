@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @author Axehco
  * @createTime 2022年01月08日 21:45
  */
-public class AcWing4206 {
+public class AcWing4206_判断数字 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str = sc.next();
