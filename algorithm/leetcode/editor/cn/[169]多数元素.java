@@ -3,7 +3,7 @@ package leetcode.editor.cn;
 import java.util.HashMap;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class majorityElementSolution {
+class majorityElement169Solution {
     // 摩尔投票法
     public int majorityElement(int[] nums) {
         int candidate = nums[0];
@@ -57,7 +57,7 @@ class majorityElementSolution {
     }*/
 
     public static void main(String[] args) {
-        majorityElementSolution solution = new majorityElementSolution();
+        majorityElement169Solution solution = new majorityElement169Solution();
         System.out.println(solution.majorityElement(new int[]{2, 2, 1, 1, 1, 2, 2}));
         System.out.println(solution.majorityElement(new int[]{3,2,3}));
     }
