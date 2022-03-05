@@ -1,8 +1,5 @@
 package leetcode.editor.cn;
 
-import java.util.Set;
-import java.util.TreeSet;
-
 //leetcode submit region begin(Prohibit modification and deletion)
 class removeDuplicatesSolution {
     public int removeDuplicates(int[] nums) {
