@@ -1,7 +1,7 @@
 package leetcode.editor.cn;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class removeDuplicatesSolution {
+class removeDuplicates26Solution {
     public int removeDuplicates(int[] nums) {
         int slow = 0, fast = 1;
         while (fast < nums.length) {
@@ -18,7 +18,7 @@ class removeDuplicatesSolution {
     }
 
     public static void main(String[] args) {
-        removeDuplicatesSolution solution = new removeDuplicatesSolution();
+        removeDuplicates26Solution solution = new removeDuplicates26Solution();
         System.out.println(solution.removeDuplicates(new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}));
         System.out.println(solution.removeDuplicates(new int[]{1,1,2}));
     }
