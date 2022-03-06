@@ -1,7 +1,5 @@
 package leetcode.editor.cn;
 
-import java.util.Arrays;
-
 //leetcode submit region begin(Prohibit modification and deletion)
 class sortColorsSolution {
     public void sortColors(int[] nums) {
