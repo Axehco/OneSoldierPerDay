@@ -13,6 +13,7 @@ class Solution {
     }
 
     void dfs(int n, List<String> res, int leftNum, int rightNum, StringBuilder str) {
+        // 剪枝
         if (rightNum > leftNum) return;
         if (leftNum == n && rightNum == n) {
             res.add(str.toString());
